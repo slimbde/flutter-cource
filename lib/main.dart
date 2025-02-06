@@ -1,26 +1,47 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(MyFirstApp());
+}
+
+class MyFirstApp extends StatelessWidget {
+  const MyFirstApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.white30,
+        backgroundColor: Colors.lightGreen,
         appBar: AppBar(
-          title: Text('My first app'),
+          title: Text("My widget app"),
           centerTitle: true,
-          backgroundColor: Colors.blue,
         ),
         body: Center(
-          child: Text(
-            'This is my app body',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-              fontWeight: FontWeight.w700,
+          child: Container(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                LinearProgressIndicator(
+                  value: 0.23,
+                ),
+                Text(
+                  '23 %',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                Text(
+                  'Press button to download',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                )
+              ],
             ),
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: null,
+          child: Icon(Icons.cloud),
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
